@@ -5,8 +5,8 @@
 $ ->
   myVar = setInterval(->
     update_messages()
-  , 3500)
-  
+  , 3000)
+
   $("#transmit").click ->
     message_content = $("#message_content").val()
     $.ajax
@@ -14,9 +14,8 @@ $ ->
       url: "/receiver/create_message"
       data: {txt: message_content}
       success: $("#message_content").val("")
-     
+
 
 update_messages = ->
   $.get "/receiver/update", (data) ->
     $("#messages").prepend(data)
-  
